@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="jquery-1.7.2.js">
+</script>
+<script>
+
+$(document).ready(function(){
+$("#getuserp2").click(function(){
+	$.ajax({
+     url:'http://www.ibilibili.com/static/js/forbejson/userinfop.php',//请求服务器函数
+     dataType:"jsonp",//选择数据的传输格式,有json和jsonp两种
+     jsonp:"showjson",//传给服务端的参数
+	 jsonpCallback: "showjson",//服务端返回的数据格式，名称必须和服务端的一致
+     success:function(data){
+        alert(data.url);
+     }
+	});	
+	});
+});
+
+</script>
+</head>
+<body>
+<input type="button" id="getuserp2" value="请求有回调函数的php">
+</body>
+</html>
